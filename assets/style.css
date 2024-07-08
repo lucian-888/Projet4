@@ -354,7 +354,7 @@ input[type="submit"] {
 	}
 }
 
-.active-tag {
+.nav-link.active-tag {
 	background-color:#BEB45A;;
 	color: white;
   }
