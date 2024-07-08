@@ -354,3 +354,8 @@ input[type="submit"] {
 	}
 }
 
+.active-tag {
+	background-color:#BEB45A;;
+	color: white;
+  }
+  
