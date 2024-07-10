@@ -245,7 +245,7 @@
 
     showItemTags(gallery, position, tags) {
       // Initialiser la variable tagItems avec le bouton "Tous" par défaut
-      var tagItems = '<li class="nav-item"><span class="nav-link active active-tag" data-images-toggle="all">Tous</span></li>';
+      var tagItems = '<li class="nav-item"><span class="nav-link  active-tag" data-images-toggle="all">Tous</span></li>';
     
       // Parcourir chaque tag dans le tableau tags
       $.each(tags, function(index, value) {

@@ -48,6 +48,7 @@ body {
 	padding-inline: 100px;
 	padding-block: 100px;
 	position: relative;
+	
 }
 
 .picture.left::before {
@@ -101,8 +102,8 @@ body {
 	justify-content: center;
 }
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-	color: #fff;
-	background-color: #BEB45A;
+	color: white;
+	background-color: #333333;
 	border-radius:0 ;
 }
 .nav-pills .nav-link {
@@ -355,7 +356,7 @@ input[type="submit"] {
 }
 
 .nav-link.active-tag {
-	background-color:#BEB45A;;
+	background-color:#333333;
 	color: white;
   }
   
