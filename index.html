@@ -34,9 +34,15 @@
 
 		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-indicators">
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+					<span class="visually-hidden">Aller à la diapositive 1</span>
+				</button>
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">
+					<span class="visually-hidden">Aller à la diapositive 2</span>
+				</button>
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3">
+					<span class="visually-hidden">Aller à la diapositive 3</span>
+				</button>
 			</div>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
@@ -140,28 +146,28 @@
 	</div>
 	<div id="contact">
 		<div class="container">
-			<div class="form-container">
+			<div class="form-container" itemscope itemtype="http://schema.org/ContactPage">
 				<h3>Une question ? Une demande de devis ?</h3>
-				<p> N’hésitez pas à m’écrire ! Je vous répondrais en moins de 24 heures</p>
-				<form action="submit-form" method="post">
-					<label for="nom">Nom :</label>
-					<input type="text" name="nom" id="nom" required>
-					<label for="email">Email :</label>
-					<input type="email" name="email" id="email" required>
-					<label for="message">Message :</label>
-					<textarea name="message" id="message" cols="30" rows="10" required></textarea>
-					<input type="submit" value="Envoyer" aria-label="Envoyer le formulaire">
-					<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-						<p>
-							<span itemprop="streetAddress">68 avenue Alsace-Lorraine</span><br>
-            				<span itemprop="addressLocality">Bordeaux</span>, <span itemprop="postalCode">33200</span>
-						</p>
-						
-						<p>Téléphone : <a class="telephone" href="tel:+33556677889" itemprop="telephone">05 56 67 78 89</a></p>
-        				<p>Horaires : Lundi au vendredi : 10 h à 19 h</p>
-					</div>
+				<p itemprop="description"> N'hésitez pas à m'écrire ! Je vous répondrais en moins de 24 heures</p>
+				<form action="submit-form.php" method="post">
+				  <label for="nom">Nom :</label>
+				  <input type="text" name="nom" id="nom" itemprop="name" aria-label="Votre nom" required>
+				  <label for="email">Email :</label>
+				  <input type="email" name="email" id="email" itemprop="email" aria-label="Votre email" required>
+				  <label for="message">Message :</label>
+				  <textarea name="message" id="message" itemprop="text" cols="30" rows="10" aria-label="Votre message" required></textarea>
+				  <input type="submit" value="Envoyer" aria-label="Envoyer le formulaire">
 				</form>
-			</div>
+				<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+				  <p>
+					<span itemprop="streetAddress">68 avenue Alsace-Lorraine</span><br>
+					<span itemprop="addressLocality">Bordeaux</span>, <span itemprop="postalCode">33200</span>
+				  </p>
+				  <p>Téléphone : <a class="telephone" href="tel:+33556677889" itemprop="telephone">05 56 67 78 89</a></p>
+				  <p>Horaires : Lundi au vendredi : 10 h à 19 h</p>
+				</div>
+			  </div>
+			  
 			
 			<div class="picture right">
 				<img src="./assets/images/cameraa.webp" alt="image of a camera" loading="lazy">
