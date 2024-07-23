@@ -1,9 +1,14 @@
 (function($) {
+  // Définition du plugin jQuery
   $.fn.mauGallery = function(options) {
+    // Fusion des options par défaut avec celles spécifiées par l'utilisateur
     var options = $.extend($.fn.mauGallery.defaults, options);
-    var tagsCollection = [];
+    var tagsCollection = []; // Collection de tags uniques
     return this.each(function() {
+      // Création du conteneur de lignes pour les éléments de la galerie
       $.fn.mauGallery.methods.createRowWrapper($(this));
+      
+      // Si l'option lightBox est activée, créer une lightbox
       if (options.lightBox) {
         $.fn.mauGallery.methods.createLightBox(
           $(this),
@@ -11,15 +16,22 @@
           options.navigation
         );
       }
+      // Initialisation des écouteurs d'événements
       $.fn.mauGallery.listeners(options);
 
+      // Pour chaque élément de la galerie
       $(this)
         .children(".gallery-item")
         .each(function(index) {
+          // Rendre les images réactives
           $.fn.mauGallery.methods.responsiveImageItem($(this));
+          // Déplacer l'élément dans le conteneur de lignes
           $.fn.mauGallery.methods.moveItemInRowWrapper($(this));
+          // Envelopper l'élément dans une colonne en fonction des options de colonnes
           $.fn.mauGallery.methods.wrapItemInColumn($(this), options.columns);
+          // Récupérer le tag de l'élément
           var theTag = $(this).data("gallery-tag");
+          // Si les tags doivent être affichés et que le tag est nouveau, l'ajouter à la collection
           if (
             options.showTags &&
             theTag !== undefined &&
@@ -29,6 +41,7 @@
           }
         });
 
+      // Si les tags doivent être affichés, les afficher
       if (options.showTags) {
         $.fn.mauGallery.methods.showItemTags(
           $(this),
@@ -37,19 +50,26 @@
         );
       }
 
+      // Afficher la galerie avec un effet de fondu
       $(this).fadeIn(500);
     });
   };
+
+  // Options par défaut du plugin
   $.fn.mauGallery.defaults = {
-    columns: 3,
-    lightBox: true,
-    lightboxId: null,
-    showTags: true,
-    tagsPosition: "bottom",
-    navigation: true
+    columns: 3, // Nombre de colonnes par défaut
+    lightBox: true, // Activation de la lightbox par défaut
+    lightboxId: null, // ID de la lightbox
+    showTags: true, // Afficher les tags par défaut
+    tagsPosition: "bottom", // Position des tags par défaut
+    navigation: true // Navigation activée par défaut
   };
+
+  // Écouteurs d'événements pour les interactions utilisateur
   $.fn.mauGallery.listeners = function(options) {
+    // Lorsqu'un élément de la galerie est cliqué
     $(".gallery-item").on("click", function() {
+      // Si la lightbox est activée et que l'élément cliqué est une image, ouvrir la lightbox
       if (options.lightBox && $(this).prop("tagName") === "IMG") {
         $.fn.mauGallery.methods.openLightBox($(this), options.lightboxId);
       } else {
@@ -57,16 +77,21 @@
       }
     });
 
+    // Filtrer les images par tag lorsque l'utilisateur clique sur un tag
     $(".gallery").on("click", ".nav-link", $.fn.mauGallery.methods.filterByTag);
+    // Navigation vers l'image précédente dans la lightbox
     $(".gallery").on("click", ".mg-prev", () =>
       $.fn.mauGallery.methods.prevImage(options.lightboxId)
     );
+    // Navigation vers l'image suivante dans la lightbox
     $(".gallery").on("click", ".mg-next", () =>
       $.fn.mauGallery.methods.nextImage(options.lightboxId)
     );
   };
 
+  // Méthodes du plugin
   $.fn.mauGallery.methods = {
+    // Création du conteneur de lignes pour les éléments de la galerie
     createRowWrapper(element) {
       if (
         !element
@@ -77,6 +102,7 @@
         element.append('<div class="gallery-items-row row"></div>');
       }
     },
+    // Envelopper l'élément dans une colonne en fonction des options de colonnes
     wrapItemInColumn(element, columns) {
       if (columns.constructor === Number) {
         element.wrap(
@@ -106,116 +132,82 @@
         );
       }
     },
+    // Déplacer l'élément dans le conteneur de lignes
     moveItemInRowWrapper(element) {
       element.appendTo(".gallery-items-row");
     },
+    // Rendre les images réactives
     responsiveImageItem(element) {
       if (element.prop("tagName") === "IMG") {
         element.addClass("img-fluid");
       }
     },
+    // Ouvrir la lightbox pour l'image cliquée
     openLightBox(element, lightboxId) {
       $(`#${lightboxId}`)
         .find(".lightboxImage")
         .attr("src", element.attr("src"));
       $(`#${lightboxId}`).modal("toggle");
     },
+    // Navigation vers l'image précédente dans la lightbox
     prevImage(lightboxId) {
-      // Récupérer l'image active dans la lightbox
       let activeImage = $(`#${lightboxId} .lightboxImage`);
-    
-      // Récupérer le tag actif dans la barre de tags
       let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
-    
-      // Initialiser un tableau pour stocker les images
       let imagesCollection = [];
-    
-      // Vérifier si le tag actif est "all"
+
       if (activeTag === "all") {
-        // Si c'est "all", parcourir toutes les colonnes d'images
         $(".item-column").each(function() {
-          // Vérifier si la colonne contient une image
           if ($(this).children("img").length) {
-            // Si oui, ajouter l'image au tableau imagesCollection
             imagesCollection.push($(this).children("img"));
           }
         });
       } else {
-        // Sinon, parcourir les colonnes d'images avec le tag actif
         $(".item-column").each(function() {
-          // Vérifier si l'image dans la colonne a le tag actif
           if ($(this).children("img").data("gallery-tag") === activeTag) {
-            // Si oui, ajouter l'image au tableau imagesCollection
             imagesCollection.push($(this).children("img"));
           }
         });
       }
-    
-      // Initialiser l'index de l'image active et l'image précédente
+
       let index = 0, prev = null;
-    
-      // Parcourir le tableau imagesCollection pour trouver l'index de l'image active
       $(imagesCollection).each(function(i) {
         if ($(activeImage).attr("src") === $(this).attr("src")) {
           index = i;
         }
       });
-    
-      // Calculer l'image précédente en utilisant l'index
       prev = imagesCollection[index - 1] || imagesCollection[imagesCollection.length - 1];
-    
-      // Mettre à jour la source de l'image dans la lightbox avec l'image précédente
       $(`#${lightboxId} .lightboxImage`).attr("src", $(prev).attr("src"));
     },
-    
+    // Navigation vers l'image suivante dans la lightbox
     nextImage(lightboxId) {
-      // Récupérer l'image active dans la lightbox
       let activeImage = $(`#${lightboxId} .lightboxImage`);
-    
-      // Récupérer le tag actif dans la barre de tags
       let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
-    
-      // Initialiser un tableau pour stocker les images
       let imagesCollection = [];
-    
-      // Vérifier si le tag actif est "all"
+
       if (activeTag === "all") {
-        // Si c'est "all", parcourir toutes les colonnes d'images
         $(".item-column").each(function() {
-          // Vérifier si la colonne contient une image
           if ($(this).children("img").length) {
-            // Si oui, ajouter l'image au tableau imagesCollection
             imagesCollection.push($(this).children("img"));
           }
         });
       } else {
-        // Sinon, parcourir les colonnes d'images avec le tag actif
         $(".item-column").each(function() {
-          // Vérifier si l'image dans la colonne a le tag actif
           if ($(this).children("img").data("gallery-tag") === activeTag) {
-            // Si oui, ajouter l'image au tableau imagesCollection
             imagesCollection.push($(this).children("img"));
           }
         });
       }
-    
-      // Initialiser l'index de l'image active et l'image suivante
+
       let index = 0, next = null;
-    
-      // Parcourir le tableau imagesCollection pour trouver l'index de l'image active
       $(imagesCollection).each(function(i) {
         if ($(activeImage).attr("src") === $(this).attr("src")) {
           index = i;
         }
       });
-    
-      // Calculer l'image suivante en utilisant l'index
       next = imagesCollection[index + 1] || imagesCollection[0];
-    
-      // Mettre à jour la source de l'image dans la lightbox avec l'image suivante
       $(`#${lightboxId} .lightboxImage`).attr("src", $(next).attr("src"));
     },
-    
+    // Création de la lightbox
     createLightBox(gallery, lightboxId, navigation) {
       gallery.append(`<div class="modal fade" id="${
         lightboxId ? lightboxId : "galleryLightbox"
@@ -239,53 +231,32 @@
                 </div>
             </div>`);
     },
-
+    // Affichage des tags des éléments
     showItemTags(gallery, position, tags) {
-      // Initialiser la variable tagItems avec le bouton "Tous" par défaut
       var tagItems = '<li class="nav-item"><span class="nav-link  active-tag" data-images-toggle="all">Tous</span></li>';
-    
-      // Parcourir chaque tag dans le tableau tags
       $.each(tags, function(index, value) {
-        // Ajouter un élément de liste pour chaque tag
         tagItems += `<li class="nav-item">
                 <span class="nav-link" data-images-toggle="${value}">${value}</span></li>`;
       });
-    
-      // Envelopper les éléments de liste dans une balise <ul>
       var tagsRow = `<ul class="my-4 tags-bar nav nav-pills">${tagItems}</ul>`;
-    
-      // Déterminer la position des boutons de catégorie
       if (position === "bottom") {
-        // Ajouter les boutons de catégorie en bas de la galerie
         gallery.append(tagsRow);
       } else if (position === "top") {
-        // Ajouter les boutons de catégorie en haut de la galerie
         gallery.prepend(tagsRow);
       } else {
-        // Afficher une erreur si la position n'est pas valide
         console.error(`Unknown tags position: ${position}`);
       }
     },
-    
+    // Filtrer les éléments par tag
     filterByTag() {
-      // Récupérer le tag associé au bouton cliqué
       let tag = $(this).data("images-toggle");
-    
-      // Supprimer la classe active de tous les boutons
       $(".nav-link").removeClass("active-tag");
-      
-      // Ajouter la classe active au bouton cliqué
       $(this).addClass("active-tag");
-    
-      // Vérifier si le tag est "all" (Tous)
+
       if (tag === "all") {
-        // Si c'est "all", afficher toutes les images
         $(".gallery-item").parents(".item-column").show();
       } else {
-        // Sinon, cacher toutes les images
         $(".gallery-item").parents(".item-column").hide();
-        
-        // Afficher uniquement les images avec le tag correspondant
         $(".gallery-item[data-gallery-tag='" + tag + "']").parents(".item-column").show();
       }
     },
