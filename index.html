@@ -23,31 +23,26 @@
 	<title>Nina Carducci - Photographe professionnelle à Bordeaux</title>
     <!-- Description de la page pour les moteurs de recherche -->
 	<meta name="description" content="Nina Carducci, photographe professionnelle spécialisée dans les portraits, les mariages et les événements à Bordeaux. Découvrez mon portfolio et contactez-moi dès maintenant pour réserver votre séance photo !">
-
 	<!-- Meta Tags Open Graph -->
 	<meta property="og:title" content="Nina Carducci - Photographe professionnelle à Bordeaux" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://github.com/lucian-888/Projet4.git" />
-	<meta property="og:image" content="http://127.0.0.1:5500/assets/images/ninaa.webp" />
+	<meta property="og:url" content="https://lucian-888.github.io/Projet4/" />
+	<meta property="og:image" content="https://lucian-888.github.io/Projet4/assets/images/ninaa.webp" />
 	<meta property="og:description" content="Nina Carducci, photographe professionnelle spécialisée dans les portraits, les mariages et les événements à Bordeaux. Découvrez mon portfolio et contactez-moi dès maintenant pour réserver votre séance photo !" />
 	<meta property="og:site_name" content="Nina Carducci" />
 	<meta property="og:locale" content="fr_FR" />
-	
 	<!-- Meta Tags Twitter Cards -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Nina Carducci - Photographe professionnelle à Bordeaux" />
 	<meta name="twitter:description" content="Nina Carducci, photographe professionnelle spécialisée dans les portraits, les mariages et les événements à Bordeaux. Découvrez mon portfolio et contactez-moi dès maintenant pour réserver votre séance photo !" />
-	<meta name="twitter:image" content="http://127.0.0.1:5500/assets/images/ninaa.webp" />
-	<meta name="twitter:site" content="@VotreNomUtilisateurTwitter" />
-	<meta name="twitter:creator" content="@NomDeLaPersonneQuiAÉcritLaPage" />
-
+	<meta name="twitter:image" content="https://lucian-888.github.io/Projet4/assets/images/ninaa.webp" />
+	<meta name="twitter:site" content="@ninacarducci" />
+	<meta name="twitter:creator" content="@LucianBistreanu" />
 </head>
 <body>
-
-
-    <!-- Section de l'en-tête supérieure avec le nom et la navigation -->
+	<!-- Section de l'en-tête supérieure avec le nom et la navigation -->
 	 <header>
-		<div class="top-header">
+		<div class="top-header" itemscope itemtype="http://schema.org/LocalBusiness">
 			<h1 itemprop="name" class="name">Nina Carducci</h1>
 			<nav>
 				<div class="nav">   
@@ -70,13 +65,10 @@
             <!-- Indicateurs du carrousel -->
 			<div class="carousel-indicators">
 				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
-					<span class="visually-hidden">Aller à la diapositive 1</span>
 				</button>
 				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">
-					<span class="visually-hidden">Aller à la diapositive 2</span>
 				</button>
 				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3">
-					<span class="visually-hidden">Aller à la diapositive 3</span>
 				</button>
 			</div>
             <!-- Images du carrousel -->
@@ -102,22 +94,20 @@
 			</button>
 		</div>
 	</div>
-
-    <!-- Section À propos -->
+	<!-- Section À propos -->
 	<div id="about">
 		<div class="picture left">
             <!-- Image de Nina Carducci -->
 			<img src="./assets/images/ninaa.webp" alt="Nina Carducci portrait" loading="lazy">
 		</div>
-		<div id="about-me">
+		<div id="about-me" itemscope itemtype="http://schema.org/LocalBusiness">
 			<h2 class="about-me__title">A propos de moi</h2>
 			<h3 class="about-me__introduction">Devenir photographe était pour moi une évidence. Comme si j’y étais prédestiné. Saisir un moment, une émotion, une situation, un endroit, une lumière et les rendre immortels, voilà ce qui me fait vibrer.</h3>
 			<p itemprop="description">Nous passons notre vie à chercher le bonheur, et lorsque nous y touchons, nous n’avons qu’une envie : le figer au travers de photographies pour le savourer avec les personnes qui sont importantes à nos yeux, ou le partager au plus grand nombre.
 				C’est ce que je vous propose : saisir ces merveilleux moments au travers de mon regard, mon approche, ma technique. Rendre ces moments immortels, afin que vous puissiez y puiser de l’amour, du bonheur, de la tendresse et de lumière à chaque fois que vous poserez les yeux sur vos photos.</p>
 		</div>
 	</div>
-
-    <!-- Section Galerie -->
+	<!-- Section Galerie -->
 	<div id="gallery">
 		<h3 class="title">Portfolio</h3>
 		<div class="container py-3">
@@ -134,7 +124,7 @@
 				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplasha.webp" alt="happy working woman" loading="lazy"/>
 			</div>
 		</div>
-        <!-- Citation inspirante -->
+    	<!-- Citation inspirante -->
 		<div class="quote">
 			<figure>
 				<blockquote>
@@ -144,14 +134,13 @@
 			</figure>
 		</div>
 	</div>
-
-    <!-- Section Services -->
+	<!-- Section Services -->
 	<div id="services">
 		<h3 class="title">Mes services</h3>
 		<div class="container">
             <!-- Description des services offerts avec les prix -->
 			<div class="service">
-				<div class="service__description">
+				<div class="service__description" itemscope itemtype="http://schema.org/LocalBusiness">
 					<h3>Shooting photo</h3>
 					<p itemprop="service">Pour capturer vos moments les plus précieux et garder un souvenir impérissable. Je me déplace en Île-de-France pour réaliser vos photos</p>
 				</div>
@@ -161,7 +150,7 @@
 				</div>
 			</div>
 			<div class="service">
-				<div class="service__description">
+				<div class="service__description" itemscope itemtype="http://schema.org/LocalBusiness">
 					<h3>Retouches</h3>
 					<p itemprop="service">Vous souhaitez retoucher vos photos pour un résultat professionnel ? Bénéficier d’un rendu optimal pour vos publications</p>
 				</div>
@@ -171,7 +160,7 @@
 				</div>
 			</div>
 			<div class="service">
-				<div class="service__description">
+				<div class="service__description" itemscope itemtype="http://schema.org/LocalBusiness">
 					<h3>Album photos</h3>
 					<p itemprop="service">Partagez avec vos proches et vos clients les photos des moments partagés ensemble à travers un album photo personnalisé</p>
 				</div>
@@ -191,21 +180,10 @@
 			<figcaption class="quote__author">- Richard Avedon</figcaption>
 		</figure>
 	</div>
-
-</main>		
-
-
-
-
-
-    
-	
-   
-
-
+</main>	
+<!-- Section Contact -->	
 <footer>
-    <!-- Section Contact -->
-	<div id="contact">
+    <div id="contact">
 		<div class="container">
 			<div class="form-container" itemscope itemtype="http://schema.org/ContactPage">
 				<h3>Une question ? Une demande de devis ?</h3>
@@ -229,6 +207,7 @@
 					<span itemprop="streetAddress">68 avenue Alsace-Lorraine</span><br>
 					<span itemprop="addressLocality">Bordeaux</span>, 
 					<span itemprop="postalCode">33200</span>, 
+					<span itemprop="addressRegion">Bretagne</span>
 					<span itemprop="addressRegion">FR</span>
 				  </p>
 				    <!-- Téléphone -->
@@ -243,11 +222,6 @@
 			</div>
 		</div>
 	</div>
-
 </footer>
-
-		
-
-
 </body>
 </html>
