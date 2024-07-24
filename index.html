@@ -4,8 +4,8 @@
     <!-- Définition de la vue pour les appareils mobiles -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Inclusion des fichiers CSS de Bootstrap et du style personnalisé -->
-	<link rel="stylesheet" href="./assets/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" href="./assets/style.min.css">
+	<link rel="stylesheet" href="./assets/bootstrap/bootstrap.css">
+	<link rel="stylesheet" href="./assets/style.css">
     <!-- Préconnexion aux polices Google pour améliorer les performances de chargement -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,37 +14,38 @@
     <!-- Encodage des caractères en UTF-8 -->
 	<meta charset="UTF-8">
     <!-- Inclusion des fichiers JavaScript de Bootstrap et de jQuery -->
-	<script src="./assets/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="./assets/bootstrap/bootstrap.bundle.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!-- Inclusion des scripts personnalisés -->
-	<script src="./assets/maugallery.min.js"></script>
+	<script src="./assets/maugallery.js"></script>
 	<script src="./assets/scripts.js"></script>
     <!-- Titre de la page -->
 	<title>Nina Carducci - Photographe professionnelle à Bordeaux</title>
     <!-- Description de la page pour les moteurs de recherche -->
 	<meta name="description" content="Nina Carducci, photographe professionnelle spécialisée dans les portraits, les mariages et les événements à Bordeaux. Découvrez mon portfolio et contactez-moi dès maintenant pour réserver votre séance photo !">
-	<!-- Meta Tags Open Graph -->
-	<meta property="og:title" content="Nina Carducci - Photographe professionnelle à Bordeaux" />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://lucian-888.github.io/Projet4/" />
-	<meta property="og:image" content="https://lucian-888.github.io/Projet4/assets/images/ninaa.webp" />
-	<meta property="og:description" content="Nina Carducci, photographe professionnelle spécialisée dans les portraits, les mariages et les événements à Bordeaux. Découvrez mon portfolio et contactez-moi dès maintenant pour réserver votre séance photo !" />
-	<meta property="og:site_name" content="Nina Carducci" />
-	<meta property="og:locale" content="fr_FR" />
-	<!-- Meta Tags Twitter Cards -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Nina Carducci - Photographe professionnelle à Bordeaux" />
-	<meta name="twitter:description" content="Nina Carducci, photographe professionnelle spécialisée dans les portraits, les mariages et les événements à Bordeaux. Découvrez mon portfolio et contactez-moi dès maintenant pour réserver votre séance photo !" />
-	<meta name="twitter:image" content="https://lucian-888.github.io/Projet4/assets/images/ninaa.webp" />
-	<meta name="twitter:site" content="@ninacarducci" />
-	<meta name="twitter:creator" content="@LucianBistreanu" />
+	  <!-- Meta Tags Open Graph -->
+	  <meta property="og:title" content="Nina Carducci - Photographe professionnelle à Bordeaux" />
+	  <meta property="og:type" content="website" />
+	  <meta property="og:url" content="https://lucian-888.github.io/Projet4/" />
+	  <meta property="og:image" content="https://lucian-888.github.io/Projet4/assets/images/ninaa.webp" />
+	  <meta property="og:description" content="Nina Carducci, photographe professionnelle spécialisée dans les portraits, les mariages et les événements à Bordeaux. Découvrez mon portfolio et contactez-moi dès maintenant pour réserver votre séance photo !" />
+	  <meta property="og:site_name" content="Nina Carducci" />
+	  <meta property="og:locale" content="fr_FR" />
+	  
+	  <!-- Meta Tags Twitter Cards -->
+	  <meta name="twitter:card" content="summary_large_image" />
+	  <meta name="twitter:title" content="Nina Carducci - Photographe professionnelle à Bordeaux" />
+	  <meta name="twitter:description" content="Nina Carducci, photographe professionnelle spécialisée dans les portraits, les mariages et les événements à Bordeaux. Découvrez mon portfolio et contactez-moi dès maintenant pour réserver votre séance photo !" />
+	  <meta name="twitter:image" content="https://lucian-888.github.io/Projet4/assets/images/ninaa.webp" />
+	  <meta name="twitter:site" content="@ninacarducci" />
+	  <meta name="twitter:creator" content="@LucianBistreanu" />
 </head>
 <body>
-	<!-- Section de l'en-tête supérieure avec le nom et la navigation -->
-	 <header>
-		<div class="top-header" itemscope itemtype="http://schema.org/LocalBusiness">
-			<h1 itemprop="name" class="name">Nina Carducci</h1>
-			<nav>
+	<main>
+		<div itemscope itemtype="http://schema.org/LocalBusiness">
+			<!-- Section de l'en-tête supérieure avec le nom et la navigation -->
+			<div class="top-header">
+				<h1 itemprop="name" class="name">Nina Carducci</h1>
 				<div class="nav">   
 					<ul>
 						<li><a href="#about">À propos</a></li>
@@ -55,173 +56,162 @@
 						<li><a class="social-link" href="https://www.instagram.com/ninacarducci.photo/?hl=fr" target="_blank" aria-label="Visit Nina Carducci's Instagram profile"><img src="assets/images/instagram.webp" alt="Nina Carducci Instagram"></a></li>
 					</ul>
 				</div>
-			</nav>
-		</div>
-	</header>
-    <!-- Section principale avec un carrousel d'images -->
-	 <main>
-	<div id="header">
-		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <!-- Indicateurs du carrousel -->
-			<div class="carousel-indicators">
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
-				</button>
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">
-				</button>
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3">
-				</button>
 			</div>
-            <!-- Images du carrousel -->
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img src="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplasha_3_11zon.webp" class="d-block w-100" alt="..." >
-				</div>
-				<div class="carousel-item">
-					<img src="./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplasha_2_11zon.webp" class="d-block w-100" alt="..." loading="lazy">
-				</div>
-				<div class="carousel-item">
-					<img src="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplasha_1_11zon.webp" class="d-block w-100" alt="..." loading="lazy">
-				</div>
-			</div>
-            <!-- Contrôles de navigation du carrousel -->
-			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Next</span>
-			</button>
-		</div>
-	</div>
-	<!-- Section À propos -->
-	<div id="about">
-		<div class="picture left">
-            <!-- Image de Nina Carducci -->
-			<img src="./assets/images/ninaa.webp" alt="Nina Carducci portrait" loading="lazy">
-		</div>
-		<div id="about-me" itemscope itemtype="http://schema.org/LocalBusiness">
-			<h2 class="about-me__title">A propos de moi</h2>
-			<h3 class="about-me__introduction">Devenir photographe était pour moi une évidence. Comme si j’y étais prédestiné. Saisir un moment, une émotion, une situation, un endroit, une lumière et les rendre immortels, voilà ce qui me fait vibrer.</h3>
-			<p itemprop="description">Nous passons notre vie à chercher le bonheur, et lorsque nous y touchons, nous n’avons qu’une envie : le figer au travers de photographies pour le savourer avec les personnes qui sont importantes à nos yeux, ou le partager au plus grand nombre.
-				C’est ce que je vous propose : saisir ces merveilleux moments au travers de mon regard, mon approche, ma technique. Rendre ces moments immortels, afin que vous puissiez y puiser de l’amour, du bonheur, de la tendresse et de lumière à chaque fois que vous poserez les yeux sur vos photos.</p>
-		</div>
-	</div>
-	<!-- Section Galerie -->
-	<div id="gallery">
-		<h3 class="title">Portfolio</h3>
-		<div class="container py-3">
-			<div class="gallery" style="display: none">
-                <!-- Images de la galerie avec des tags de catégories -->
-				<img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplasha.webp" alt="concert scene" loading="lazy"/>
-				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplasha.webp" alt="portrait of a businessman" loading="lazy"/>
-				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplasha.webp" alt="portrait of a smilling woman" loading="lazy"/>
-				<img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplasha.webp" alt="hands" loading="lazy"/>
-				<img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/ade-tunji-rVkhWWZFAtQ-unsplasha.webp" alt="portrait of a man with closed eyes" loading="lazy"/>
-				<img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/jakob-owens-SiniLJkXhMc-unsplasha.webp" alt="happy newly married couple" loading="lazy"/>
-				<img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/nino-van-prattenburg-443cl1uR_8-unsplasha.webp" alt="portrait of a woman" loading="lazy"/>
-				<img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplasha.webp" alt="concert singer" loading="lazy"/>
-				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplasha.webp" alt="happy working woman" loading="lazy"/>
-			</div>
-		</div>
-    	<!-- Citation inspirante -->
-		<div class="quote">
-			<figure>
-				<blockquote>
-					<h3 class="quote__text">Un portrait n’est pas une ressemblance. Dès lors qu’une émotion ou qu’un fait est traduit en photo, il cesse d’être un fait pour devenir une opinion. L’inexactitude n’existe pas en photographie. Toutes les photos sont exactes. Aucune d’elles n’est la vérité.</h3>
-				</blockquote>
-				<figcaption class="quote__author">- Richard Avedon</figcaption>
-			</figure>
-		</div>
-	</div>
-	<!-- Section Services -->
-	<div id="services">
-		<h3 class="title">Mes services</h3>
-		<div class="container">
-            <!-- Description des services offerts avec les prix -->
-			<div class="service">
-				<div class="service__description" itemscope itemtype="http://schema.org/LocalBusiness">
-					<h3>Shooting photo</h3>
-					<p itemprop="service">Pour capturer vos moments les plus précieux et garder un souvenir impérissable. Je me déplace en Île-de-France pour réaliser vos photos</p>
-				</div>
-				<div class="service__price">
-					<h4>350€/demi journée</h4>
-					<span>Matériel, déplacement inclus</span>
+			<!-- Section principale avec un carrousel d'images -->
+			<div id="header">
+				<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+					<!-- Indicateurs du carrousel -->
+					<div class="carousel-indicators">
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+					</div>
+					<!-- Images du carrousel -->
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img src="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplasha_3_11zon.webp" class="d-block w-100" alt="..." loading="lazy">
+						</div>
+						<div class="carousel-item">
+							<img src="./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplasha_2_11zon.webp" class="d-block w-100" alt="..." loading="lazy">
+						</div>
+						<div class="carousel-item">
+							<img src="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplasha__11zon.webp" class="d-block w-100" alt="..." loading="lazy">
+						</div>
+					</div>
+					<!-- Contrôles de navigation du carrousel -->
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
 				</div>
 			</div>
-			<div class="service">
-				<div class="service__description" itemscope itemtype="http://schema.org/LocalBusiness">
-					<h3>Retouches</h3>
-					<p itemprop="service">Vous souhaitez retoucher vos photos pour un résultat professionnel ? Bénéficier d’un rendu optimal pour vos publications</p>
+			<!-- Section À propos -->
+			<div id="about">
+				<div class="picture left">
+					<!-- Image de Nina Carducci -->
+					<img src="./assets/images/ninaa.webp" alt="Nina Carducci portrait" loading="lazy">
 				</div>
-				<div class="service__price">
-					<h4>50€/photo</h4>
-					<span>2 AR par photo</span>
+				<div id="about-me">
+					<h2 class="about-me__title">A propos de moi</h2>
+					<h3 class="about-me__introduction">Devenir photographe était pour moi une évidence. Comme si j’y étais prédestiné. Saisir un moment, une émotion, une situation, un endroit, une lumière et les rendre immortels, voilà ce qui me fait vibrer.</h3>
+					<p itemprop="description">Nous passons notre vie à chercher le bonheur, et lorsque nous y touchons, nous n’avons qu’une envie : le figer au travers de photographies pour le savourer avec les personnes qui sont importantes à nos yeux, ou le partager au plus grand nombre.
+						C’est ce que je vous propose : saisir ces merveilleux moments au travers de mon regard, mon approche, ma technique. Rendre ces moments immortels, afin que vous puissiez y puiser de l’amour, du bonheur, de la tendresse et de lumière à chaque fois que vous poserez les yeux sur vos photos.</p>
 				</div>
 			</div>
-			<div class="service">
-				<div class="service__description" itemscope itemtype="http://schema.org/LocalBusiness">
-					<h3>Album photos</h3>
-					<p itemprop="service">Partagez avec vos proches et vos clients les photos des moments partagés ensemble à travers un album photo personnalisé</p>
+			<!-- Section Galerie -->
+			<div id="gallery">
+				<h3 class="title">Portfolio</h3>
+				<div class="container py-3">
+					<div class="gallery" style="display: none">
+						<!-- Images de la galerie avec des tags de catégories -->
+						<img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplasha.webp" alt="concert scene" loading="lazy"/>
+						<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplasha.webp" alt="portrait of a businessman" loading="lazy"/>
+						<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplasha.webp" alt="portrait of a smilling woman" loading="lazy"/>
+						<img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplasha.webp" alt="hands" loading="lazy"/>
+						<img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/ade-tunji-rVkhWWZFAtQ-unsplasha.webp" alt="portrait of a man with closed eyes" loading="lazy"/>
+						<img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/jakob-owens-SiniLJkXhMc-unsplasha.webp" alt="happy newly married couple" loading="lazy"/>
+						<img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/nino-van-prattenburg-443cl1uR_8-unsplasha.webp" alt="portrait of a woman" loading="lazy"/>
+						<img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplasha.webp" alt="concert singer" loading="lazy"/>
+						<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplasha.webp" alt="happy working woman" loading="lazy"/>
+					</div>
 				</div>
-				<div class="service__price">
-					<h4>400€ album A4</h4>
-					<span>30 pages recto/verso</span>
+				<!-- Citation inspirante -->
+				<div class="quote">
+					<figure>
+						<blockquote>
+							<h3 class="quote__text">Un portrait n’est pas une ressemblance. Dès lors qu’une émotion ou qu’un fait est traduit en photo, il cesse d’être un fait pour devenir une opinion. L’inexactitude n’existe pas en photographie. Toutes les photos sont exactes. Aucune d’elles n’est la vérité.</h3>
+						</blockquote>
+						<figcaption class="quote__author">- Richard Avedon</figcaption>
+					</figure>
+				</div>
+			</div>
+				<!-- Section Services -->
+			<div id="services">
+				<h3 class="title">Mes services</h3>
+				<div class="container">
+					<!-- Description des services offerts avec les prix -->
+					<div class="service">
+						<div class="service__description">
+							<h3>Shooting photo</h3>
+							<p itemprop="service">Pour capturer vos moments les plus précieux et garder un souvenir impérissable. Je me déplace en Île-de-France pour réaliser vos photos</p>
+						</div>
+						<div class="service__price">
+							<h4>350€/demi journée</h4>
+							<span>Matériel, déplacement inclus</span>
+						</div>
+					</div>
+					<div class="service">
+						<div class="service__description">
+							<h3>Retouches</h3>
+							<p itemprop="service">Vous souhaitez retoucher vos photos pour un résultat professionnel ? Bénéficier d’un rendu optimal pour vos publications</p>
+						</div>
+						<div class="service__price">
+							<h4>50€/photo</h4>
+							<span>2 AR par photo</span>
+						</div>
+					</div>
+					<div class="service">
+						<div class="service__description">
+							<h3>Album photos</h3>
+							<p itemprop="service">Partagez avec vos proches et vos clients les photos des moments partagés ensemble à travers un album photo personnalisé</p>
+						</div>
+						<div class="service__price">
+							<h4>400€ album A4</h4>
+							<span>30 pages recto/verso</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Deuxième citation inspirante -->
+			<div class="quote">
+				<figure>
+					<blockquote>
+						<h4 class="quote__text">De manière inconsciente, je crois, je guette un regard, une expression, des traits ou une nostalgie capable de résumer ou plus exactement de révéler une vie</h4>
+					</blockquote>
+					<figcaption class="quote__author">- Richard Avedon</figcaption>
+				</figure>
+			</div>
+		</main>
+    <!-- Section Contact -->
+	 <footer>
+		<div id="contact">
+			<div class="container">
+				<div class="form-container" itemscope itemtype="http://schema.org/ContactPage">
+					<h3>Une question ? Une demande de devis ?</h3>
+					<p itemprop="description"> N'hésitez pas à m'écrire ! Je vous répondrais en moins de 24 heures</p>
+					<!-- Formulaire de contact -->
+					<form action="submit-form.php" method="post">
+					<label for="nom">Nom :</label>
+					<input type="text" name="nom" id="nom" itemprop="name" aria-label="Votre nom" required>
+					<label for="email">Email :</label>
+					<input type="email" name="email" id="email" itemprop="email" aria-label="Votre email" required>
+					<label for="message">Message :</label>
+					<textarea name="message" id="message" itemprop="text" cols="30" rows="10" aria-label="Votre message" required></textarea>
+					<input type="submit" value="Envoyer" aria-label="Envoyer le formulaire">
+					</form>
+					<!-- Coordonnées de contact -->
+					<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+					<p>
+						<span itemprop="streetAddress">68 avenue Alsace-Lorraine</span><br>
+						<span itemprop="addressLocality">Bordeaux</span>, 
+						<span itemprop="postalCode">33200</span>,
+						<span itemprop="addressCountry">FR</span>
+					</p>
+					<p>Téléphone : <a class="telephone" href="tel:+33556677889" itemprop="telephone">05 56 67 78 89</a></p>
+					<p>Horaires : Lundi au vendredi : 10 h à 19 h</p>
+					</div>
+				</div>
+				<!-- Image décorative à droite -->
+				<div class="picture right">
+					<img src="./assets/images/cameraa.webp" alt="image of a camera" loading="lazy">
 				</div>
 			</div>
 		</div>
-	</div>
-    <!-- Deuxième citation inspirante -->
-	<div class="quote">
-		<figure>
-			<blockquote>
-				<h4 class="quote__text">De manière inconsciente, je crois, je guette un regard, une expression, des traits ou une nostalgie capable de résumer ou plus exactement de révéler une vie</h4>
-			</blockquote>
-			<figcaption class="quote__author">- Richard Avedon</figcaption>
-		</figure>
-	</div>
-</main>	
-<!-- Section Contact -->	
-<footer>
-    <div id="contact">
-		<div class="container">
-			<div class="form-container" itemscope itemtype="http://schema.org/ContactPage">
-				<h3>Une question ? Une demande de devis ?</h3>
-				<p itemprop="description"> N'hésitez pas à m'écrire ! Je vous répondrais en moins de 24 heures</p>
-                <!-- Formulaire de contact -->
-				<form action="submit-form.php" method="post">
-				  <label for="nom">Nom :</label>
-				  <input type="text" name="nom" id="nom" itemprop="name" aria-label="Votre nom" required>
-				  <label for="email">Email :</label>
-				  <input type="email" name="email" id="email" itemprop="email" aria-label="Votre email" required>
-				  <label for="message">Message :</label>
-				  <textarea name="message" id="message" itemprop="text" cols="30" rows="10" aria-label="Votre message" required></textarea>
-				  <input type="submit" value="Envoyer" aria-label="Envoyer le formulaire">
-				</form>
-                <!-- Coordonnées de contact -->
-				<div  itemscope itemtype="http://schema.org/LocalBusiness">
-					<!-- Nom de l'entreprise -->
-  					<meta itemprop="name" content="Nina Carducci Photographe">
-					<!-- Adresse postale -->
-				  <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-					<span itemprop="streetAddress">68 avenue Alsace-Lorraine</span><br>
-					<span itemprop="addressLocality">Bordeaux</span>, 
-					<span itemprop="postalCode">33200</span>, 
-					<span itemprop="addressRegion">Bretagne</span>
-					<span itemprop="addressRegion">FR</span>
-				  </p>
-				    <!-- Téléphone -->
-				  <p>Téléphone : <a class="telephone" href="tel:+33556677889" itemprop="telephone">05 56 67 78 89</a></p>
-				  <!-- Heures d'ouverture -->
-				  <p itemprop="openingHours" content="Mo-Fr 10:00-19:00">Lundi-Vendredi, 10:00-19:00</p>
-				</div>
-			  </div>
-            <!-- Image décorative à droite -->
-			<div class="picture right">
-				<img src="./assets/images/cameraa.webp" alt="a camera photo" loading="lazy">
-			</div>
-		</div>
-	</div>
-</footer>
+	</footer>
+</div>
 </body>
 </html>
