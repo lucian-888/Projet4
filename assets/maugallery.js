@@ -151,114 +151,177 @@
     },
     // Navigation vers l'image précédente dans la lightbox
     prevImage(lightboxId) {
+      // Sélectionne l'image actuellement affichée dans la lightbox en utilisant l'ID de la lightbox
       let activeImage = $(`#${lightboxId} .lightboxImage`);
+  
+      // Récupère le tag actif (filtre) dans la barre des tags pour déterminer quelles images afficher
       let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
+  
+      // Initialise un tableau pour stocker la collection d'images à afficher
       let imagesCollection = [];
-
+  
+      // Si le tag actif est "all", inclut toutes les images dans la collection
       if (activeTag === "all") {
-        $(".item-column").each(function() {
-          if ($(this).children("img").length) {
-            imagesCollection.push($(this).children("img"));
-          }
-        });
+          $(".item-column").each(function() {
+              // Si l'élément contient une image, l'ajoute à la collection
+              if ($(this).children("img").length) {
+                  imagesCollection.push($(this).children("img"));
+              }
+          });
       } else {
-        $(".item-column").each(function() {
-          if ($(this).children("img").data("gallery-tag") === activeTag) {
-            imagesCollection.push($(this).children("img"));
-          }
-        });
+          // Si un tag spécifique est actif, inclut uniquement les images avec ce tag dans la collection
+          $(".item-column").each(function() {
+              if ($(this).children("img").data("gallery-tag") === activeTag) {
+                  imagesCollection.push($(this).children("img"));
+              }
+          });
       }
-
+  
+      // Initialisation des variables pour l'index de l'image actuelle et l'image précédente
       let index = 0, prev = null;
+  
+      // Parcourt la collection d'images pour trouver l'index de l'image actuellement affichée
       $(imagesCollection).each(function(i) {
-        if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i;
-        }
+          if ($(activeImage).attr("src") === $(this).attr("src")) {
+              index = i;
+          }
       });
+  
+      // Détermine l'image précédente dans la collection
+      // Si l'image actuelle est la première de la collection, prend la dernière image comme précédente
       prev = imagesCollection[index - 1] || imagesCollection[imagesCollection.length - 1];
+  
+      // Met à jour l'attribut "src" de l'image dans la lightbox pour afficher l'image précédente
       $(`#${lightboxId} .lightboxImage`).attr("src", $(prev).attr("src"));
-    },
+  },
+  
     // Navigation vers l'image suivante dans la lightbox
     nextImage(lightboxId) {
+      // Sélectionne l'image actuellement affichée dans la lightbox en utilisant l'ID de la lightbox
       let activeImage = $(`#${lightboxId} .lightboxImage`);
+  
+      // Récupère le tag actif (filtre) dans la barre des tags pour déterminer quelles images afficher
       let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
+  
+      // Initialise un tableau pour stocker la collection d'images à afficher
       let imagesCollection = [];
-
+  
+      // Si le tag actif est "all", inclut toutes les images dans la collection
       if (activeTag === "all") {
-        $(".item-column").each(function() {
-          if ($(this).children("img").length) {
-            imagesCollection.push($(this).children("img"));
-          }
-        });
+          $(".item-column").each(function() {
+              // Si l'élément contient une image, l'ajoute à la collection
+              if ($(this).children("img").length) {
+                  imagesCollection.push($(this).children("img"));
+              }
+          });
       } else {
-        $(".item-column").each(function() {
-          if ($(this).children("img").data("gallery-tag") === activeTag) {
-            imagesCollection.push($(this).children("img"));
-          }
-        });
+          // Si un tag spécifique est actif, inclut uniquement les images avec ce tag dans la collection
+          $(".item-column").each(function() {
+              if ($(this).children("img").data("gallery-tag") === activeTag) {
+                  imagesCollection.push($(this).children("img"));
+              }
+          });
       }
-
+  
+      // Initialisation des variables pour l'index de l'image actuelle et l'image suivante
       let index = 0, next = null;
+  
+      // Parcourt la collection d'images pour trouver l'index de l'image actuellement affichée
       $(imagesCollection).each(function(i) {
-        if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i;
-        }
+          if ($(activeImage).attr("src") === $(this).attr("src")) {
+              index = i;
+          }
       });
+  
+      // Détermine l'image suivante dans la collection
+      // Si l'image actuelle est la dernière de la collection, prend la première image comme suivante
       next = imagesCollection[index + 1] || imagesCollection[0];
+  
+      // Met à jour l'attribut "src" de l'image dans la lightbox pour afficher l'image suivante
       $(`#${lightboxId} .lightboxImage`).attr("src", $(next).attr("src"));
-    },
+  },
+  
     // Création de la lightbox
     createLightBox(gallery, lightboxId, navigation) {
-      gallery.append(`<div class="modal fade" id="${
-        lightboxId ? lightboxId : "galleryLightbox"
-      }" tabindex="-1" role="dialog" aria-labelledby="modal-dialog" aria-describedby="modal-dialog" aria-hidden="true">
-                <div id="modal-dialog" class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            ${
-                              navigation
-                                ? '<div class="mg-prev" style="cursor:pointer;position:absolute;top:50%;left:-15px;background:white;"><</div>'
-                                : '<span style="display:none;" />'
-                            }
-                            <img class="lightboxImage img-fluid" alt="Contenu de l\'image affichée dans la modale au clique"/>
-                            ${
-                              navigation
-                                ? '<div class="mg-next" style="cursor:pointer;position:absolute;top:50%;right:-15px;background:white;}">></div>'
-                                : '<span style="display:none;" />'
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>`);
-    },
+      // Ajout d'un élément HTML pour la modale de la lightbox dans le conteneur de la galerie
+      gallery.append(`
+          <div class="modal fade" id="${
+            // Si lightboxId est défini, utilisez-le comme ID pour la modale, sinon utilisez "galleryLightbox"
+            lightboxId ? lightboxId : "galleryLightbox"
+          }" tabindex="-1" role="dialog" aria-labelledby="modal-dialog" aria-describedby="modal-dialog" aria-hidden="true">
+              <div id="modal-dialog" class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-body">
+                          ${
+                            // Si la navigation est activée, ajoutez un bouton de navigation "précédent"
+                            navigation
+                              ? '<div class="mg-prev" style="cursor:pointer;position:absolute;top:50%;left:-15px;background:white;"><</div>'
+                              : '<span style="display:none;" />'
+                          }
+                          <!-- Image affichée dans la lightbox -->
+                          <img class="lightboxImage img-fluid" alt="Contenu de l\'image affichée dans la modale au clique"/>
+                          ${
+                            // Si la navigation est activée, ajoutez un bouton de navigation "suivant"
+                            navigation
+                              ? '<div class="mg-next" style="cursor:pointer;position:absolute;top:50%;right:-15px;background:white;}">></div>'
+                              : '<span style="display:none;" />'
+                          }
+                      </div>
+                  </div>
+              </div>
+          </div>`);
+  },
+  
     // Affichage des tags des éléments
     showItemTags(gallery, position, tags) {
-      var tagItems = '<li class="nav-item"><span class="nav-link  active-tag" data-images-toggle="all">Tous</span></li>';
+      // Initialise la variable tagItems avec un élément de liste pour l'option "Tous"
+      var tagItems = '<li class="nav-item"><span class="nav-link active-tag" data-images-toggle="all">Tous</span></li>';
+  
+      // Parcourt chaque élément du tableau tags
       $.each(tags, function(index, value) {
-        tagItems += `<li class="nav-item">
-                <span class="nav-link" data-images-toggle="${value}">${value}</span></li>`;
+          // Ajoute un élément de liste pour chaque tag dans la variable tagItems
+          tagItems += `<li class="nav-item">
+                  <span class="nav-link" data-images-toggle="${value}">${value}</span></li>`;
       });
+  
+      // Crée une barre de tags (tagsRow) en entourant les tags par une balise ul avec des classes pour le style
       var tagsRow = `<ul class="my-4 tags-bar nav nav-pills">${tagItems}</ul>`;
+  
+      // Vérifie la position des tags (haut ou bas)
       if (position === "bottom") {
-        gallery.append(tagsRow);
+          // Si la position est "bottom", ajoute la barre de tags à la fin de l'élément gallery
+          gallery.append(tagsRow);
       } else if (position === "top") {
-        gallery.prepend(tagsRow);
+          // Si la position est "top", ajoute la barre de tags au début de l'élément gallery
+          gallery.prepend(tagsRow);
       } else {
-        console.error(`Unknown tags position: ${position}`);
+          // Si la position est inconnue, affiche une erreur dans la console
+          console.error(`Unknown tags position: ${position}`);
       }
-    },
+  },
+  
     // Filtrer les éléments par tag
     filterByTag() {
+      // Récupère le tag associé à l'élément sur lequel on a cliqué
       let tag = $(this).data("images-toggle");
+  
+      // Retire la classe "active-tag" de tous les éléments ayant la classe "nav-link"
       $(".nav-link").removeClass("active-tag");
+  
+      // Ajoute la classe "active-tag" à l'élément sur lequel on a cliqué
       $(this).addClass("active-tag");
-
+  
+      // Si le tag est "all", affiche tous les éléments ayant la classe "gallery-item"
       if (tag === "all") {
-        $(".gallery-item").parents(".item-column").show();
+          $(".gallery-item").parents(".item-column").show();
       } else {
-        $(".gallery-item").parents(".item-column").hide();
-        $(".gallery-item[data-gallery-tag='" + tag + "']").parents(".item-column").show();
+          // Sinon, cache tous les éléments parents des éléments ayant la classe "gallery-item"
+          $(".gallery-item").parents(".item-column").hide();
+  
+          // Puis affiche uniquement les éléments parents des "gallery-item" qui ont le tag correspondant
+          $(".gallery-item[data-gallery-tag='" + tag + "']").parents(".item-column").show();
       }
-    },
+  },
+  
   };
 })(jQuery);
