@@ -114,6 +114,7 @@ body {
 	border-radius: 0;
 }
 
+
 .nav-pills .nav-link {
 	color: #000
 }
@@ -397,11 +398,6 @@ input[type="submit"] {
 	.picture {
 		width: 80%;
 	}
-}
-
-.nav-link.active-tag {
-	background-color: #333333;
-	color: white;
 }
 
 .telephone {
